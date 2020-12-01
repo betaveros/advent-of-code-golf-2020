@@ -1,0 +1,8 @@
+y³¨¨γgŠ2020=Þ .. 13 bytes (the Rust implementation really helps here)
+              .. (again, -2 bytes if running in 2020, but not if the Rust implementation)
+
+{
+y   .. As before.
+³¨¨ .. Cube and flatten twice into a list of pairs.
+γgŠ2020=Þ .. As before.
+};

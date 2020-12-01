@@ -1,0 +1,22 @@
+y²¨γgŠ2020=Þ .. 12 bytes
+             .. (-2 bytes if running in 2020: replace 2020 with Ny)
+
+{   .. This delimits a block, which we'll just discard at the end.
+y   .. Treat input as a list of values, so those that can be interpreted as
+    .. ints (all of them), will.
+²   .. Square this list (take the cartesian product with itself).
+    .. But this produces a list of lists of pairs.
+¨   .. Flatten into a list of pairs
+
+γgŠ2020= .. Short block. You can't insert spaces here. Play-by-play:
+    .. γ  Length-3 short block consisting of the next three tokens...
+    ..  g    modified into a getter: get the first element matching this
+    ..       predicate. (This is not one of the three tokens.)
+    .. Š    Sum the list.
+    .. 2020 The literal number 2020. (If this program is running in 2020,
+    ..      or if the challenge always uses the current year, you can use Ny
+    ..      instead. This isn't in the Rust implementation though.)
+    .. =    Check if equal
+
+Þ   .. Take the product.
+};
