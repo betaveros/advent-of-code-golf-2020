@@ -1,0 +1,24 @@
+a{W~\‹#\Ig~M\u]$p}# .. 19 bytes :-/
+.. 4 bytes to parsing "1-2" as two positive integers isn't great,
+.. and that's a lot of stack juggling
+
+{
+a .. read input as list of lines
+{ .. this block will be applied to every line:
+  W  .. break into (space-delimited) "words"
+  ~  .. expand onto the stack: stack contains range-string, letter-and-colon, password
+     .. (the top of the stack is to the right)
+  \  .. swap the top two: stack contains range-string, password, letter-and-colon
+  ‹  .. take the first char: stack contains range-string, password, letter
+  #  .. count occurrences of letter in password: range-string, letter-count
+  \  .. swap, so the range-string is on top
+  Ig .. take int groups, producing a 2-element list with the lower bound and
+     .. the negated upper bound
+  ~  .. expand those two numbers onto the stack
+  M  .. negate to fix the sign of the upper bound :-/
+  \u .. swap the second and third stack elements: stack contains lower bound, count, upper bound
+  ]  .. create a list of everything on the stack in this for-each loop
+     .. which is [lower bound, count, upper bound]
+  $p .. check if this list is sorted (nondecreasingly)
+}# .. count how many lines satisfy this predicate
+};

@@ -1,0 +1,24 @@
+a{W~\oIgLm(m=y^L2=}# .. 20 chars (pure ASCII!)
+
+{
+a .. read input as list of lines
+{ .. this block will be applied to every line:
+  W   .. break into (space-delimited) "words"
+  ~   .. expand onto the stack:
+      .. stack contains two-index-string, letter-and-colon, password
+  \o  .. swap out (o for out) the two-index-string to the top:
+      .. stack contains letter-and-colon, password, two-index-string
+  Ig  .. take int groups as before
+  Lm  .. map with absolute value to fix the second index's sign
+      .. without damaging the first index
+  (m  .. then map with decrease to decrease both
+  =y  .. "anti-vectorize" with indexing:
+      ..   apply =, the index function, to every element of the top stack
+      ..   element, always paired with the second stack element
+      .. so now the stack contains letter-and-colon and two letters
+  ^   .. take the exclusive set difference (!)
+      .. this has size 2 iff the solution condition is true
+  L   .. so, take the length of that
+  2=  .. and check if it equals 2
+}# .. count how many lines satisfy this predicate
+};
