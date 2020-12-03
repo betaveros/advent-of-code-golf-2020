@@ -1,0 +1,25 @@
+a5{!)%Y×(L{Y*=cÔ}vŠ}yÞ .. 22 bytes
+.. Same caveat as in part 1.
+
+{
+a  .. read input as list of lines
+5  .. we'll map 0,1,2,3,4 to the five pairs
+{  .. we'll run this block on the list of lines and each number from 0 to 4:
+  !) .. not and increment
+     ..   maps 0 to 2, all others to 1: the downwards displacement
+  %  .. take only lines at indexes = 0 mod this number, like python list[::n]
+  Y  .. get the index back
+  ×  .. double
+  (  .. subtract one
+  L  .. and take the absolute value, to produce the right displacement
+  {  .. we'll run this block on each line and the right displacement:
+    Y  .. push the index
+    *  .. multiply by the right displacement
+    =c .. index cyclically
+    Ô  .. and check if odd (which ord('#') = 35 is, ord('.') = 46 isn't)
+  }v
+  Š  .. sum
+}y .. anti-vectorize: run the above block on the list of lines and each number
+   .. from 0 to 4
+Þ  .. take the product
+};

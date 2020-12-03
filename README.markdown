@@ -19,3 +19,5 @@ Day-Level | Bytes | Code | Try In-Browser
 1-2 | 13 (−2?) | `y³¨¨γgŠ2020=Þ` (in 2020: `y³¨¨γgŠNy=Þ`) | [try](https://betaveros.github.io/paradoc-rust/#ecKzwqjCqM6zZ8WgMjAyMD3Dng==)
 2-1 | 19 | `a{W~\‹#\Ig~M\u]$p}#` | [try](https://betaveros.github.io/paradoc-rust/#YXtXflzigLkjXElnfk1cdV0kcH0j)
 2-2 | 20 | `a{W~\oIgLm(m=y^L2=}#` | [try](https://betaveros.github.io/paradoc-rust/#YXtXflxvSWdMbShtPXleTDI9fSM=)
+3-1 | 10 | `a{Y3*=cÔ}š` | [try](https://betaveros.github.io/paradoc-rust/#YXtZMyo9Y8OUfcWh)
+3-2 | 22 | `a5{!)%Y×(L{Y*=cÔ}vŠ}yÞ` | [try](https://betaveros.github.io/paradoc-rust/#YTV7ISklWcOXKEx7WSo9Y8OUfXbFoH15w54=)

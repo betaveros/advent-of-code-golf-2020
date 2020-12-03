@@ -1,0 +1,14 @@
+a{Y3*=cÔ}š .. 10 bytes
+.. Note: =c worked in the Python implementation before AoC 2020, but I only
+.. ported it to Rust after today. If you want something that worked on the
+.. pre-AoC Rust implementation, penalize me 1 byte and replace `=c` with `<c‹`.
+
+{
+a  .. read input as list of lines
+{  .. we'll map this block across each line and sum:
+  Y  .. push the index of enumeration
+  3* .. multiply by 3
+  =c .. index cyclically
+  Ô  .. and check if odd (which ord('#') = 35 is, ord('.') = 46 isn't)
+}š .. map the above block and sum
+};
