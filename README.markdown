@@ -13,9 +13,9 @@ I could obviously cheat at golf by adding built-ins to Paradoc tailored to each 
 
 Note on byte count: Like a lot of the other golfing languages [seen on the Programming Puzzles & Code Golf StackExchange](https://codegolf.meta.stackexchange.com/questions/5878/what-character-encodings-may-a-submission-use/5879#5879), the byte counts here assume programs were encoded in the Paradoc code page. These programs will almost always take up more than the stated byte count as UTF-8 strings, and for the sake of easy viewability, they are UTF-8 encoded below and in the programs in this repository.
 
-Day-Level | Bytes | Code
---- | -- | ----
-1-1 | 12 (−2?) | `y²¨γgŠ2020=Þ` (in 2020: `y²¨γgŠNy=Þ`)
-1-2 | 13 (−2?) | `y³¨¨γgŠ2020=Þ` (in 2020: `y³¨¨γgŠNy=Þ`)
-2-1 | 19 | `a{W~\‹#\Ig~M\u]$p}#`
-2-2 | 20 | `a{W~\oIgLm(m=y^L2=}#`
+Day-Level | Bytes | Code | Try In-Browser
+--- | -- | ---- | ----
+1-1 | 12 (−2?) | `y²¨γgŠ2020=Þ` (in 2020: `y²¨γgŠNy=Þ`) | [try](https://betaveros.github.io/paradoc-rust/#ecKywqjOs2fFoDIwMjA9w54=)
+1-2 | 13 (−2?) | `y³¨¨γgŠ2020=Þ` (in 2020: `y³¨¨γgŠNy=Þ`) | [try](https://betaveros.github.io/paradoc-rust/#ecKzwqjCqM6zZ8WgMjAyMD3Dng==)
+2-1 | 19 | `a{W~\‹#\Ig~M\u]$p}#` | [try](https://betaveros.github.io/paradoc-rust/#YXtXflzigLkjXElnfk1cdV0kcH0j)
+2-2 | 20 | `a{W~\oIgLm(m=y^L2=}#` | [try](https://betaveros.github.io/paradoc-rust/#YXtXflxvSWdMbShtPXleTDI9fSM=)
