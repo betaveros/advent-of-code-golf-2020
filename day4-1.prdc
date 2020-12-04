@@ -1,0 +1,32 @@
+iN×/µW‹mXúç}7# .. 14 bytes
+
+.. Bug fixes in the Rust implementation required for this to work:
+.. - N was declared as the newline character rather than the newline string.
+..   If it were a char, replacing N× with N2° (+1 byte) would work. I don't see
+..   an easy way to use them compatibly. Maybe just get the string to split on
+..   with double-quote newline newline double-quote (+2 bytes).
+.. - ú didn't work at all because it wasn't lexed correctly. The direct fix
+..   costs +2 bytes: replace Xúç with 33%b#. Blah, this is why you test your
+..   code.
+
+.. Obviously, this assumes a lot of nice things about the input. Roughly, we
+.. assume that passports never have invalid keys (anything not listed in the
+.. problem description) or duplicate keys. So we just count the passports
+.. that have 7 entries not starting with c.
+
+.. Explanation:
+
+{
+i  .. Read the input as one big string.
+N  .. Push the record separator, a string consisting of a newline.
+×  .. Double it.
+/  .. Split the input by this two-newline string, to get the list of passports.
+
+µ  .. Map the following block over each passport:
+  W   .. Break it into Words, by splitting on whitespace.
+  ‹m  .. Map by taking the first character of each word.
+  Xúç .. Count (ç) how many are truthy, i.e. nonzero, mod (ù) 33 (X, because X
+      ..    is 33 in base-36)
+}  .. End map.
+7# .. Count how many times 7 appears.
+};

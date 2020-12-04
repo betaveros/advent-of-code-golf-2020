@@ -1,0 +1,99 @@
+iN×/µW{4>q(<ŠZú[{I1961±42<}{"amb blu brn gry grn hzl oth"W\#}{DpâqL9=&}{I45²±6<}{('#=\:L6=\ÅhLc-!&&}0_:{I2015±6<}{2m<q>["cm"{I7³½±22<}"in"{I67.5±9<}1_0]s}]=c~}#}7# .. 166 chars lol
+
+.. I didn't try *that* hard to golf this or to take too much advantage of the
+.. values in the input data this time. I take equal advantage of the field
+.. names though.
+
+.. I had to implement _ on numbers in Rust to make this work, but you can
+.. probably substitute L_ and !_ or something for nice AoC inputs.
+
+{
+iN×/ .. As in part 1, split by double newline to get passports
+µ .. We'll map this block across passports:
+  W .. Break into words
+  { .. We'll count how many words satisfy this block (there must be 7):
+    4    .. four, the index where the value starts
+    >q   .. slice after that, but keep both operands and put the result under
+    (    .. decrease four to three, where the field name ends
+    <    .. slice before that
+    Š    .. Sum all the chars
+    Zú   .. and mod 35 (Z in base 36).
+         .. By brute force we found that if you mod 9 after this, you get 8
+         .. distinct numbers from the 9 fields.
+    [ .. Start a list of cases to validate each of the fields:
+
+      .. 0 -> byr
+      .. Here we assume it's always an integer and just check if it's in range
+      {
+        I     .. Convert to integer,
+        1961± .. take the absolute difference from 1961,
+        42<   .. and see if it's <42.
+      }
+
+      .. 1 ecl
+      {
+        "amb blu brn gry grn hzl oth"W .. Make the list of colors.
+        \# .. Swap and check if our color exists in this list
+        .. literally, count how many occurrences of that color are in that list
+      }
+
+      .. 2 pid
+      {
+        Dpâq .. Check if all (â) characters are digits (Dp),
+             .. but keep the argument string on the stack and put the result
+             .. under it (q). This is all one token.
+        L9=  .. Take the length, see if it equals 9.
+        &    .. And these two conditions together.
+      }
+
+      .. 3 eyr
+      {
+        I    .. Convert to integer,
+        45²± .. take the absolute difference from 2025, which *just happens* to
+             .. be 45²,
+        6<   .. and see if it's <6.
+      }
+
+      .. 4 hcl
+      {
+        (    .. Uncons: push all-but-first char and first char.
+             .. So we assume the token is nonempty I guess.
+        '#=\ .. See if the first char equals a hash character, then swap it under.
+        :L6= .. Copy, take length, see if it equals 6,
+        \    .. then swap it under.
+        ÅhLc .. Åh is the string "0123456789ABCDEF". Push it and lowercase it
+        -    .. and set-subtract it from our string.
+        !    .. See if the result is empty; if so, our string is all digits or
+             .. lowercase hex digits.
+        &&   .. And all three conditions together.
+      }
+
+      .. 5 NONE, doesn't matter, just return false
+      0_
+      .. 6 cid, just return false, copy the above
+      :
+
+      .. 7 iyr
+      .. Again we assume it's always an integer and just check if it's in range
+      .. Nothing we haven't seen here
+      {I2015±6<}
+
+      .. 8 hgt
+      {
+        2m .. negative two
+        <q .. Pythonically slice before that, but keep both operands and put the
+           .. result under
+        >  .. Then slice after that
+        [  .. Start a list of cases by the unit:
+           .. We assume that if there's a unit, the stuff before it is an integer.
+           "cm" {I7³½±22<} .. If cm, check if < 22 away from 171.5 = 7³/2.
+           "in" {I67.5±9<} .. If in, Check if < 9 away from 67.5.
+           1_   0 .. Catch-all, return false.
+        ]s .. Case match against the unit.
+      }
+    ]
+    =c~ .. Cyclically index and execute.
+  }# .. Count valid field-value pairs.
+}
+7# .. Count how many times 7 appears.
+};
