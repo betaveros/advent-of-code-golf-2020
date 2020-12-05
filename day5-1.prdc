@@ -1,0 +1,13 @@
+aµµ4&!}2B}Æ .. 11 bytes
+
+{
+a .. read input as list of lines
+µ .. map the following block:
+  µ .. map each char by the following block:
+    4&! .. binary AND with 4 and see if nonzero,
+        .. which maps 'B' and 'R' to 1, 'F' and 'L' to 0
+  }  .. end block
+  2B .. interpret in base 2
+} .. end block
+Æ .. take the maximum
+};

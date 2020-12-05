@@ -23,3 +23,5 @@ Day-Level | Bytes | Code | Try In-Browser
 3-2 | 22 | `a5{!)%Y×(L{Y*=cÔ}vŠ}yÞ` | [try](https://betaveros.github.io/paradoc-rust/#YTV7ISklWcOXKEx7WSo9Y8OUfXbFoH15w54=)
 4-1 | 14 | `iN×/µW‹mXúç}7#` | [try](https://betaveros.github.io/paradoc-rust/#aU7Dly/CtVfigLltWMO6w6d9NyM=)
 4-2 | 166 | `iN×/µW{4>q(<ŠZú[{I1961±42<}{"amb blu brn gry grn hzl oth"W\#}{DpâqL9=&}{I45²±6<}{('#=\:L6=\ÅhLc-!&&}0_:{I2015±6<}{2m<q>["cm"{I7³½±22<}"in"{I67.5±9<}1_0]s}]=c~}#}7#` | [try](https://betaveros.github.io/paradoc-rust/#aU7Dly/CtVd7ND5xKDzFoFrDult7STE5NjHCsTQyPH17ImFtYiBibHUgYnJuIGdyeSBncm4gaHpsIG90aCJXXCN9e0Rww6JxTDk9Jn17STQ1wrLCsTY8fXsoJyM9XDpMNj1cw4VoTGMtISYmfTBfOntJMjAxNcKxNjx9ezJtPHE+WyJjbSJ7STfCs8K9wrEyMjx9ImluIntJNjcuNcKxOTx9MV8wXXN9XT1jfn0jfTcj)
+5-1 | 11 | `aµµ4&!}2B}Æ` | [try](https://betaveros.github.io/paradoc-rust/#YcK1wrU0JiF9MkJ9w4Y=)
+5-2 | 15 | `aµµ4&!}2B})mq-Œ` | [try](https://betaveros.github.io/paradoc-rust/#YcK1wrU0JiF9MkJ9KW1xLcWS)
