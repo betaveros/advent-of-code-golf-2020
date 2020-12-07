@@ -1,0 +1,39 @@
+aεW4÷(2<¨\µ«(I\¨°~}Hu}"shinygold"{H=•š)}–•( .. 43 bytes
+.. This is slow (O(answer))! A faster (O(tree size), i.e. answer if all
+.. coefficients were replaced with .. 1) version with 2 more bytes:
+.. aεW4÷(2<¨\µ«(I\¨‡}Hu}"shinygold"{H=γš~•*)}–•(
+
+{
+a .. read as list of lines
+ε .. for-each the following block:
+  W   .. break into words
+  4÷  .. and then into groups of 4, discarding any remainder, which
+      .. conveniently ignores "no other bags" and isolates each other bag color
+  (   .. uncons: break into all-but-first and first
+  2<¨ .. take the first two elements of the first group and concatenate
+  \   .. swap
+  µ   .. map the list of contained bags word groups by the following block:
+    «  .. take all but last
+    (I .. uncons (the number) and convert to int
+    \¨ .. swap it, concat the color words; stack now has number and
+       .. concatenated-color
+    °~ .. replicate and expand it
+  }   .. end map
+  Hu  .. update H, a convenient Hoard, with this key-value mapping
+}
+
+.. H now maps each color to a list of [number, color] pairs it contains.
+
+"shinygold"
+
+.. We're going to make a block that takes a color and looks up how many bags
+.. it contains, including itself, recursively by calling •:
+{
+  H= .. look up the color in the Hoard,
+  •š .. recursively compute up the answer for each color it contains and sum,
+  )  .. and then add 1 for this bag itself
+}
+– .. assign this to the Bullet variable
+• .. and then invoke the Bullet variable
+( .. subtract 1 to ignore the shiny gold bag itself
+};

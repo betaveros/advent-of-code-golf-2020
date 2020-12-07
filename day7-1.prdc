@@ -1,0 +1,46 @@
+aµW4÷>o_(µ«»¨}}"shinygold"†\{\&bf‹mU}bFL( .. 41 bytes
+
+{
+a .. read as list of lines
+µ .. map by the following block:
+  W   .. break into words
+  4÷  .. and then into groups of 4, discarding any remainder, which
+      .. conveniently ignores "no other bags" and isolates each other bag color
+  >o_ .. push the "right cycle one" function (>o)...
+  (   .. and apply it to just the first group
+  µ   .. map by the block that:
+    «   .. takes all but last
+    »   .. takes all but first
+    ¨   .. and concatenates the two-element list
+  }   .. end map
+}
+
+.. We now have the containments as a nice list of lists of colors, one per
+.. line: for example:
+..   light red bags contain 1 bright white bag, 2 muted yellow bags.
+..   dark orange bags contain 3 bright white bags, 4 muted yellow bags.
+..   bright white bags contain 1 shiny gold bag.
+.. becomes
+.. [
+..   ["lightred" "brightwhite" "mutedyellow"]
+..   ["darkorange" "brightwhite" "mutedyellow"]
+..   ["brightwhite" "shinygold"]
+.. ]
+
+"shinygold"† .. Make a one-element list of the string "shinygold".
+\ .. Swap it under.
+{ .. Begin a block...
+  .. This block will take a list of distinct colors and the list of containments,
+  .. and return a list of distinct colors that equal or directly contain at
+  .. least one of the colors on that list.
+
+  \   .. Swap, the list of distinct colors is on top.
+  &bf .. Filter the list of containments by set-AND bound to that list
+  ‹m  .. Take the first element of every containment.
+  U   .. Uniquify.
+}b .. Bind this block to the list of containments
+F  .. and compute its fixed point on the one-element list, producing the list
+   .. of colors that are or transitively contain the shiny gold bag.
+L  .. Compute its length
+(  .. and subtract 1 to ignore the shiny gold bag itself.
+};

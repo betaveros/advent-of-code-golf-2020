@@ -16,7 +16,7 @@ Note on byte count: Like a lot of the other golfing languages [seen on the Progr
 Day-Level | Bytes | Code | Try In-Browser
 --- | -- | ---- | ----
 1-1 | 12 (−2?) | `y²¨γgŠ2020=Þ` (in 2020: `y²¨γgŠNy=Þ`) | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#ecKywqjOs2fFoDIwMjA9w54=)
-1-2 | 13 (−2?) | `y³¨¨γgŠ2020=Þ` (in 2020: `y³¨¨γgŠNy=Þ`) | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#ecKzwqjCqM6zZ8WgMjAyMD3Dng==)
+1-2 | 13 (−2?) | `y³¨¨γgŠ2020=Þ` (in 2020: `y³¨¨γgŠNy=Þ`) | [![try (slow!)](try-slow.svg)](https://betaveros.github.io/paradoc-rust/#ecKzwqjCqM6zZ8WgMjAyMD3Dng==)
 2-1 | 19 | `a{W~\‹#\Ig~M\u]$p}#` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YXtXflzigLkjXElnfk1cdV0kcH0j)
 2-2 | 20 | `a{W~\oIgLm(m=y^L2=}#` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YXtXflxvSWdMbShtPXleTDI9fSM=)
 3-1 | 10 | `a{Y3*=cÔ}š` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YXtZMyo9Y8OUfcWh)
@@ -27,3 +27,5 @@ Day-Level | Bytes | Code | Try In-Browser
 5-2 | 15 | `aµµ4&!}2B})mq-Œ` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YcK1wrU0JiF9MkJ9KW1xLcWS)
 6-1 | 10 | `iN×/γšW\|rL` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#aU7Dly/Os8WhV3xyTA==)
 6-2 | 10 | `iN×/γšW&rL` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#aU7Dly/Os8WhVyZyTA==)
+7-1 | 41 | `aµW4÷>o_(µ«»¨}}"shinygold"†\{\&bf‹mU}bFL(` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YcK1VzTDtz5vXyjCtcKrwrvCqH19InNoaW55Z29sZCLigKBce1wmYmbigLltVX1iRkwo)
+7-2 | 43 | `aεW4÷(2<¨\µ«(I\¨°~}Hu}"shinygold"{H=•š)}–•(` | [![try (slow!)](try-slow.svg)](https://betaveros.github.io/paradoc-rust/#Yc61VzTDtygyPMKoXMK1wqsoSVzCqMKwfn1IdX0ic2hpbnlnb2xkIntIPeKAosWhKX3igJPigKIo) [![try fast var.](try-fast.svg)](https://betaveros.github.io/paradoc-rust/#Yc61VzTDtygyPMKoXMK1wqsoSVzCqOKAoX1IdX0ic2hpbnlnb2xkIntIPc6zxaF+4oCiKil94oCT4oCiKA==)
