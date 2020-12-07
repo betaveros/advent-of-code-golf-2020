@@ -1,0 +1,10 @@
+iN×/γšW|rL .. 10 bytes
+
+{
+i   .. read input
+N×/ .. split by double newline
+γšW|rL .. sum (š) by a short (3-token) block (γ) which
+.. W  .. breaks into words
+.. |r .. reduces (r) by set-OR (|)
+.. L  .. and takes the length
+};
