@@ -1,0 +1,33 @@
+a–0:λ:Hzγ;PE&:Ho:•=W~I\‹5%[β;)+_γ\+u)]=~} .. 41 bytes
+
+.. The Rust implementation didn't have E for Exit or the _j trailer on hoards.
+.. I'm too lazy to see what byte penalties I have to take to fix them.
+
+{
+a– .. input array of lines; pop and assign to •
+0: .. push zero (the accumulator) and duplicate it (the program counter, or PC)
+λ  .. do the following infinite loop:
+  :Hz  .. copy the PC and look it up in the default Hoard with default Zero, which
+       .. we'll use to mark visited PCs
+  γ;PE .. this short block pops the PC, prints the accumulator, and exits;
+  &    .. run it, finishing, if the value we looked up was 1
+  :Ho  .. else copy the PC again and update it in the default Hoard
+  :•=  .. then copy the PC *again* and index it into the program
+  W~   .. break the program line into words and expand to get the op and arg
+  I\   .. convert arg to integer, swap it under
+  ‹5%  .. take the first char of the op, then take it mod 5
+       .. which we'll use to choose from ths list of blocks:
+  [ .. each case gets accumulator, PC, arg on the stack
+    .. nop:
+    β;) .. block that pops the accumulator and increments the PC
+
+    .. jmp:
+    +_ .. block that adds the arg to the PC
+
+    .. acc:
+    γ\+u) .. block that swaps, then adds the non-top elements of the stack,
+          .. then increments the PC
+  ]= .. index into the list of blocks by the processed op
+  ~  .. and execute it
+}
+};

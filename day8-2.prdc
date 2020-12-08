@@ -1,0 +1,50 @@
+a·Lχ0:Hj;λ:HzQ_&:•L=γ;PE&:Ho:Z=:o•=W~I\i‹5%^[β;)+_γ\+u):]=~}} .. 61 bytes
+
+{
+a· .. input array of lines; assign to • but don't pop
+L  .. compute the length,
+χ  .. then repeat this for each index from 0 until the length exclusive
+   .. (but don't push the index — we'll grab it from the X-stack later):
+  0:  .. push zero (the accumulator) and duplicate it (the program counter, or PC)
+  Hj; .. "eject" and pop the contents of the default Hoard, to erase it
+  λ   .. do the following infinite loop, similar to part 1, but with a twist:
+         .. stack is acc, PC
+    :Hz  .. copy the PC and look it up in the default Hoard with default Zero, which
+         .. we'll use to mark visited PCs
+    Q_&  .. Quit the loop if the value we looked up was 1, indicating we're looping
+    :    .. copy the PC again and
+    •L=  .. compare it to the length of the instructions
+    γ;PE .. this short block pops the PC, prints the accumulator, and exits;
+    &    .. run it, finishing, if the PC equaled the length
+    :Ho  .. else copy the PC again and update it in the default Hoard
+    :Z=  .. copy the PC *again* and compare it to Z, the iteratee from the
+         .. outer loop (this is the "mutate flag", whether we're
+         .. going to try flipping this instruction between jmp and nop)
+    :o•= .. copy the PC from under the mutate flag and index it into the program
+    W~   .. break the program line into words and expand to get the op and arg
+    I\i  .. convert arg to integer, swap it in, beneath the "mutate flag"
+    ‹5%  .. take the first char of the op, then take it mod 5
+    ^    .. then xor it with the mutate flag
+         .. which we'll use to choose from ths list of blocks.
+         .. The key idea here is that we interpret 0 as nop, 1 as jmp,
+         .. and both 2 and 3 as acc, and on each run we flip the bottom bit
+         .. of exactly one instruction. This is a no-op on any acc instruction,
+         .. so when the outer index picks out an acc instruction, the entire
+         .. run will be futile, but the program will still be correct.
+    [ .. each case gets accumulator, PC, arg on the stack
+      .. nop:
+      β;) .. block that pops the accumulator and increments the PC
+
+      .. jmp:
+      +_ .. block that adds the arg to the PC
+
+      .. acc:
+      γ\+u) .. block that swaps, then adds the non-top elements of the stack,
+            .. then increemnts the PC
+      .. also acc:
+      : .. copy the previous block
+    ]= .. index into the list of blocks by the processed op
+    ~  .. and execute it
+  }
+}
+};
