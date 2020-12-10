@@ -1,0 +1,36 @@
+y:26W{)\²¨ÛfŠm#!}=›\<s{>s{:Š\u={ŒqÆ+PE}&}y}y .. 44 bytes...
+
+.. The much shorter 31-byte solution may work on an idealized computer:
+.. y:26W{)\²¨ÛfŠm#!}=›§uβbŠu==ŒqÆ+
+
+y: .. as before, but duplicate to leave an extra copy
+26W{)\²¨ÛfŠm#!}=› .. as before
+
+\<s .. swap and take all nonempty left slices
+{   .. then we'll mapbind by this block (but we'll explicitly exit the program
+    .. so it's just a foreach-bind
+  >s .. take all nonempty right slices, so this will go over all slices of the
+     .. >original array, and crucially in increasing order by left index
+     .. so we should see the true solution before the spurious length-1 solution
+  {  .. we'll mapbind by this:
+    :Š  .. dupe and sum
+    \u= .. swap the underlying two numbers, check if equal
+    {   .. we'll execute this block if equal:
+      ŒqÆ .. compute the minimum and maximum
+      +PE .. sum them, print, and exit
+    }
+    & .. execute the block if true
+  }y .. end mapbind
+}y .. end mapbind
+
+.. I think this alternative after the first two lines works on an ideal
+.. computer but it's crashing my implementations due to memory usage maybe?
+{
+§u .. compute all nonempty slices of the second element in the stack
+βbŠu= .. bind the top element to the short two-token block `Šu=`, which sums
+      .. the second element of the stack and compares
+=     .. get the first (and probably only) slice satisfying that predicate
+
+ŒqÆ .. compute the minimum and maximum
++   .. and sum them
+};

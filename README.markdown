@@ -31,3 +31,7 @@ Day-Level | Bytes | Code | Try In-Browser
 7-2 | 43 | `aεW4÷(2<¨\µ«(I\¨°~}Hu}"shinygold"{H=•š)}–•(` | [![try (slow!)](try-slow.svg)](https://betaveros.github.io/paradoc-rust/#Yc61VzTDtygyPMKoXMK1wqsoSVzCqMKwfn1IdX0ic2hpbnlnb2xkIntIPeKAosWhKX3igJPigKIo) [![try fast var.](try-fast.svg)](https://betaveros.github.io/paradoc-rust/#Yc61VzTDtygyPMKoXMK1wqsoSVzCqOKAoX1IdX0ic2hpbnlnb2xkIntIPc6zxaF+4oCiKil94oCT4oCiKA==)
 8-1 | 41 | `a–0:λ:Hzγ;PE&:Ho:•=W~I\‹5%[β;)+_γ\+u)]=~}` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YeKAkzA6zrs6SHrOsztQRSY6SG864oCiPVd+SVzigLk1JVvOsjspK1/Os1wrdSldPX59)
 8-2 | 61 | `a·Lχ0:Hj;λ:HzQ_&:•L=γ;PE&:Ho:Z=:o•=W~I\i‹5%^[β;)+_γ\+u):]=~}}` | [![try (slow!)](try-slow.svg)](https://betaveros.github.io/paradoc-rust/#YcK3TM+HMDpIajvOuzpIelFfJjrigKJMPc6zO1BFJjpIbzpaPTpv4oCiPVd+SVxp4oC5NSVeW86yOykrX86zXCt1KTpdPX59fQ==)
+9-1 | 18 | `y26W{)\²¨ÛfŠm#!}=›` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YcK1VzTDtz5vXyjCtcKrwrvCqH19InNoaW55Z29sZCLigKBce1wmYmbigLltVX1iRkwo)
+9-2 | 44? | `y:26W{)\²¨ÛfŠm#!}=›\<s{>s{:Š\u={ŒqÆ+PE}&}y}y` | [![try (slow!)](try-slow.svg)](https://betaveros.github.io/paradoc-rust/#eToyNld7KVzCssKow5tmxaBtIyF9PeKAulw8c3s+c3s6xaBcdT17xZJxw4YrUEV9Jn15fXk=)
+10-1 | 16 | `y$0:o+-z13d#y~)*` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#eSQwOm8rLXoxM2QjeX4pKg==)
+10-2 | 18 | `y$0Hoε:4-yHzšHu}H›` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#eSQwSG/OtTo0LXlIesWhSHV9SOKAug==)

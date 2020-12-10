@@ -1,0 +1,16 @@
+y$0Hoε:4-yHzšHu}H› .. 18 bytes
+{
+y
+$   .. sort
+0Ho .. update the default Hoard with 0 -> 1
+ε   .. for each jolt:
+  :   .. copy
+  4-y .. then mapbind subtracting the list [0,1,2,3]
+      .. so we got the list [jolt, jolt - 1, jolt - 2, jolt - 3].
+  Hzš .. Map these indices through H with default zero and sum.
+  Hu  .. Update the hoard with this new jolt to number of ways.
+      .. So we're doing dp[n] = dp[n] + dp[n-1] + dp[n-2] + dp[n-3].
+      .. (The extra dp[n] is fine bcause dp[n] defaults to zero!)
+}
+H› .. Get the element of H at the largest index.
+};

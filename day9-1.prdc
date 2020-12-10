@@ -1,0 +1,17 @@
+y26W{)\²¨ÛfŠm#!}=› .. 18 bytes
+{
+y   .. list of values, which will be integers
+26W .. get all sliding windows of length 26
+{   .. we will find the first window satisfying this predicate:
+  )  .. unsnoc, producing all-but-last and last
+  \  .. swap
+  ²¨ .. take the Cartesian product with itself and flatten
+     .. to get a list of pairs
+  Ûf .. filter (f) by having unique elements (Û), to eliminate pairing numbers
+     .. with themselves
+  Šm .. map (m) by summing each pair
+  #  .. count how many times that last number appears
+  !  .. negate
+}= .. find the first window satisfying that predicate
+›  .. take its last element
+};

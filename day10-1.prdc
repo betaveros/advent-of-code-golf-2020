@@ -1,0 +1,14 @@
+y$0:o+-z13d#y~)* .. 16 bytes (all ascii!)
+
+{
+y
+$     .. sort
+0:o+  .. 0, then copy the list and concatenate
+-z    .. zip with subtraction; this is the list of differences
+      .. (there might be something with ä here? i'm too tired to debug)
+13d   .. push the list of digits of 13
+#y    .. mapbinded-counts, count how many 1s and 3s there are in this list
+~     .. expand
+)     .. add 1, for the final 3-jolt difference
+*     .. and multiply
+};
