@@ -1,0 +1,42 @@
+aγ^j*0–0\1\ε(AúIu[β*k¸:β6ò•/j_¦βAò•M_*j_{}]=~\+u};~jLd+=i .. 57 bytes
+.. not super floating-point-stable, though we try to recover by rounding
+
+{
+a .. read input as lines lines
+
+γ^j*0– .. define a short subroutine and stick it in •:
+       .. given x, y, produce (y*1j^x), 0
+0\1\   .. push position (0) and direction (1) underneath the list of lines
+ε      .. for each line:
+  (  .. uncons
+  Aú .. take the first char mod 10:
+     .. N -> 8, S -> 3, E -> 9, W -> 7, L -> 6, R -> 2, F -> 0
+  Iu .. integer-ify the rest of the string
+     .. we have position, direction, operand on the stack
+     .. we'd like to get position, direction, displacement
+  [
+    β*k¸   .. 0 F: multiply direction by operand without deleting either,
+           ..   then delete the operand
+    :      .. 1 arbitrary
+    β6ò•   .. 2 R: divide degrees by 6, run subroutine
+           ..      (We only care about getting the right number mod 4,
+           ..      so an extra factor of -15 is fine.)
+    /j_    .. 3 S: divide direction by 1j
+    ¦      .. 4,5 arbitrary
+    βAò•   .. 6 L: divide degrees by 10, run subroutine
+           ..      (We only care about getting the right number mod 4,
+           ..      so an extra factor of 9 is fine.)
+    M_     .. 7 W: negate direction
+    *j_    .. 8 N: multiply direction by 1j
+    {}     .. 9 E: no-op
+  ]=~      .. index and execute
+  \  .. swap the displacement under the direction
+  +u .. add the position and displacement together
+}  .. end foreach
+;  .. pop the direction
+~j .. expand position into complex components
+Ld .. take absolute value of both
++  .. add
+=i .. round the float to an integer (the 1j^stuff causes instability
+   .. :grimacing:)
+};

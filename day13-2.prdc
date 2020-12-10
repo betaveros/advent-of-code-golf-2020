@@ -1,0 +1,26 @@
+i'x'0ZtIg»1\0\ε{:oX*yÁ{Y+X#}gX\*u}&}¸ .. 37 bytes
+
+{
+i
+'x'0Zt   .. translate x to 0 to make it easier to work with
+Ig       .. parse ints out
+»        .. tail to delete the first int
+1\0\     .. push modulus, answer
+ε        .. loop over the schedule...
+  {      .. if it's nonzero:
+    :o   .. Copy the old modulus
+    X*y  .. Flip-vectorize by multiplying against [0..new modulus)
+         .. stack is now: old modulus, old answer, [0,old modulus .. old modulus * new modulus)
+    Á    .. vectorizing addition
+    {    .. get by block:
+         .. (I'm surprised this doesn't push onto the X-stack, oops)
+      Y+ .. add index
+      X# .. count how many times this is divisible by outer-loop value
+         .. (we just care if it's nonzero)
+    }g
+         .. stack is now old modulus, new answer
+    X\*u .. push X, swap it under, multiply it with the old modulus
+  }& .. endif
+}
+¸ .. pop the modulus
+};

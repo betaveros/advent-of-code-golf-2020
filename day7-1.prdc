@@ -1,4 +1,4 @@
-aµW4÷>o_(µ«»¨}}"shinygold"†\{\&bf‹mU}bFL( .. 41 bytes
+aµW4÷>o_(µ«»¨}}"shinygold"†\{\&bf‹m}bFL( .. 40 bytes
 
 {
 a .. read as list of lines
@@ -37,7 +37,6 @@ a .. read as list of lines
   \   .. Swap, the list of distinct colors is on top.
   &bf .. Filter the list of containments by set-AND bound to that list
   ‹m  .. Take the first element of every containment.
-  U   .. Uniquify.
 }b .. Bind this block to the list of containments
 F  .. and compute its fixed point on the one-element list, producing the list
    .. of colors that are or transitively contain the shiny gold bag.

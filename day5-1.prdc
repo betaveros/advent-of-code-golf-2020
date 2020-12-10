@@ -1,13 +1,15 @@
-aµµ4&!}2B}Æ .. 11 bytes
+a7ú2ú2BvÆ .. 9 bytes
+
+.. aµµ4&!}2B}Æ .. 11 bytes
 
 {
 a .. read input as list of lines
-µ .. map the following block:
-  µ .. map each char by the following block:
-    4&! .. binary AND with 4 and see if nonzero,
-        .. which maps 'B' and 'R' to 1, 'F' and 'L' to 0
-  }  .. end block
-  2B .. interpret in base 2
-} .. end block
+7ú .. deeply mod everything by 7
+2ú .. and then deeply mod everything by 2
+.. this maps 'B' and 'R' to 1, 'F' and 'L' to 0
+
+2  .. two
+Bv .. "vectorize" with Base, so map by interpreting each
+   .. line in the base of the constant 2
 Æ .. take the maximum
 };

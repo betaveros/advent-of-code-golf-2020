@@ -1,0 +1,35 @@
+aJú3ú{γ0Cfv™×γ3Wv™×µ¨:4=[Ôô_γÔç5<Æ_]=~}m}FÔçš .. 45 bytes
+
+{
+a .. read list of liens
+Jú3ú .. deeply mod 19 and then 3
+.. L -> 0, # -> 1, . -> 2
+
+{ .. compute the fixed point of this block:
+  .. uncomment to see frames printed out as they're computed:
+  .. :ε"L#."=vP}NP
+  γ0Cfv™× .. twice, vectorize with cat-flanking with 0 and transpose
+  .. this surrounds the grid with 0s on all sides
+  γ3Wv™× .. twice, compute 3-windows and transpose
+  .. we now have a 2D grid of 3x3 grids
+  µ .. map by mapping by this block (which takes a 3x3 grid)
+    ¨   .. flatten
+    :4= .. copy and index 4 into it
+    [ .. we'll index into cases to execute by this:
+      .. L
+      Ôô_ .. check if none (ô) are odd (Ô) (yay overloading)
+
+      .. #
+      γÔç5< .. count odds and see if < 5
+      .. note this includes ourselves, so the rule is
+      .. become empty if >= 5
+
+      .. .
+      Æ_ .. take the max, which must be ourselves (2) lol
+    ]=~ .. index and execute the block
+  }m .. map by mapping by the above block
+}F .. compute the fixed point of the above block
+
+Ôçš .. sum by counting how many are odd
+
+};

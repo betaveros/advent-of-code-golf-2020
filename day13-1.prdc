@@ -1,0 +1,14 @@
+iIg(M{\%X]}vŒÞ .. 14 bytes
+{
+i
+Ig .. parse ints out
+(  .. uncons
+M  .. negate
+{  .. "vectorize" this against each bus and your negated time:
+  \%  .. swap, mod; this is how long you wait
+  X   .. push the bus again, the iteration variable
+  ]   .. make a list
+}v .. end vectorize
+Œ  .. take lexicographic minimum, which has the least wait
+Þ  .. product
+};

@@ -1,7 +1,7 @@
-aµµ4&!}2B})mq-Œ .. 15 bytes
+a7ú2ú2Bv)mq-Œ .. 13 bytes
 
 {
-aµµ4&!}2B} .. gets the list of seat numbers as in day 1
+a7ú2ú2Bv .. gets the list of seat numbers as in day 1
 
 )mq .. map (m) by increasing by 1 (`)`) but keep the list and put the result
     .. under (q)

@@ -1,11 +1,10 @@
-y$0:o+-z13d#y~)* .. 16 bytes (all ascii!)
+y0+$¯ä13d#y~)* .. 14 bytes
 
 {
-y
+y     .. read list of values
+0+    .. append a 0
 $     .. sort
-0:o+  .. 0, then copy the list and concatenate
--z    .. zip with subtraction; this is the list of differences
-      .. (there might be something with ä here? i'm too tired to debug)
+¯ä    .. zip with anti-subtraction; this is the list of differences
 13d   .. push the list of digits of 13
 #y    .. mapbinded-counts, count how many 1s and 3s there are in this list
 ~     .. expand

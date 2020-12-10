@@ -1,0 +1,29 @@
+a0\1jAá\ε(AúIu[γ*q;+u:γ6ò^j*-j_¦γAò^j*-_+j_+_]=~};~jLd+=i .. 57 bytes
+.. same
+
+{
+a .. read input as lines
+
+0\1jAá\ .. push position (0) and direction (10+1j) underneath the list of lines
+ε       .. for each line:
+  (  .. uncons
+  Aú .. take the first char mod 10:
+     .. N -> 8, S -> 3, E -> 9, W -> 7, L -> 6, R -> 2, F -> 0
+  Iu .. integer-ify the rest of the string
+     .. we have position, direction, operand on the stack
+  [
+    γ*q;+u  .. 0 F: multiply direction by operand without deleting either,
+            ..   leaving the product below the two; then delete the operand
+            ..   and add the direction to the position
+    :       .. 1 arbitrary
+    γ6ò^j*  .. 2 R: divide degrees by -90, take 1j^that, multiply
+    -j_     .. 3 S: multiply by 1j and subtract!
+    ¦       .. 4,5 arbitrary
+    γAò^j*  .. 6 L: divide degrees by 10, take 1j^that, multiply
+    -_      .. 7 W: subtract!
+    +j_     .. 8 N: multiply by 1j and add!
+    +_      .. 9 E: add!
+  ]=~       .. index and execute
+} .. end foreach
+;~jLd+=i
+}

@@ -1,0 +1,190 @@
+aJú3ú:βq‹LLqγ3Cfv™×–Jd{¦•==«{‡3,(m²¨ êf{λÁq¸:o~•==:«Q_&;}¸3=;i}y(w}{;;[]}?}T™–{:•\{~u==}bšmm{\[!_5<bβ;2]=~}zz}FÔçš .. 119 bytes?
+.. I don't know how to make this run in a reasonable time.
+.. I don't know if this even gives the right result.
+.. (Maybe there's a bug.)
+.. So I don't really feel like golfing it.
+
+{
+a .. read list of lines
+Jú3ú .. deeply mod 19 and then 3
+.. L -> 0, # -> 1, . -> 2
+:      .. duplicate
+βq‹LLq .. compute dimensions but under the big array
+.. note: first (bottom) is number of columns
+.. second (top) is number of rows
+γ3Cfv™× .. twice, vectorize with cat-flanking with 3 and transpose
+– .. pop and assign to the bullet because wow
+.. the dimensions are here
+Jd .. compute starting-from-1-ranges for both numbers
+{ .. we'll make a table off the cartesian product of these two:
+  .. here we have the two coordinates of a center from where to see things
+  ¦•== .. copy both coords, then index to get cur state
+  .. stack is now two coords, state
+  «  .. subtract two, so truthy if not .
+  {  .. if false:
+    ‡  .. bundle into a 2-list
+    3,(m²¨ êf .. make the list of deltas by making [0,1,2], decreasing each element,
+             .. taking product with itself and filtering for things with
+             .. at least one truthy element.
+    { .. map over fixed position and delta, both as 2-lists:
+      λ .. infinite loop:
+        Áq¸  .. vectorized add, then pop the old fixed position
+        :o   .. then copy it out
+        ~•== .. expand and index to get char
+        :«   .. copy then subtract 2, so we see if it's not 2
+        Q_&  .. if it's not 2, break
+        ;    .. otherwise just pop that char
+      }
+      .. now, we have a fixed position, a delta, and the new state
+      ¸  .. pop the delta
+      3= .. is the state equal to 3?
+      ;i .. pop if true, otherwise don't
+         .. was buggy in paradoc-rust
+    }y
+    .. we got a filtered list of neighbors to look at
+    (w .. decrease everything because these were for the
+    .. padded version
+  }
+  {;;[]} .. if false, pop both and empty list
+  ?  .. if-else
+}T
+.. we have a list of lists of lists: neighbors to look at
+™ .. transpose oops
+– .. pop and assign to the bullet
+
+{ .. compute the fixed point of this block:
+  .. uncomment to see frames printed out as they're computed:
+  .. :ε"L#."=vP}NP
+  :•\ .. copy, push bullet, swap
+  .. stack has old state, vision lookup table, old state
+  { .. this should map a 2-list to a state:
+    ~u== .. yeah ok
+  }bšmm .. bind to state then map by mapping by summing
+  .. old state, table of neighbor count
+  { .. zip zip by
+    .. takes old state, neighbor count
+    \
+    [
+      !_  .. do we see zero
+      5<b .. do we see less than five
+      β;2 .. just 2
+    ]=~ .. index and map
+  }zz
+}F .. compute the fixed point of the above block
+
+Ôçš .. sum by counting how many are odd
+};
+
+.........................................................................
+.. Below lie the skulls of our fallen comrades, which are even slower. ..
+.........................................................................
+
+.. 98 chars, too slow:
+{
+a .. read list of lines
+Jú3ú .. deeply mod 19 and then 3
+.. L -> 0, # -> 1, . -> 2
+
+{ .. compute the fixed point of this block:
+  .. uncomment to see frames printed out as they're computed:
+  .. :ε"L#."=vP}NP
+  βq‹LLq .. compute dimensions but under the big array
+  .. note: first (bottom) is number of columns
+  .. second (top) is number of rows
+  γ0Cfv™× .. twice, vectorize with cat-flanking with 0 and transpose
+  – .. pop and assign to the bullet because wow
+  .. the dimensions are here
+  Jd .. compute starting-from-1-ranges for both numbers
+  { .. we'll make a table off the cartesian product of these two:
+    .. here we have the two coordinates of a center from where to see things
+    ¦•== .. copy both coords, then index to get cur state
+    :«{   .. copy, subtract 2, if that's true:
+      \i .. swap the cur state under both coordinates
+      ‡  .. bundle into a 2-list
+      3,(m²¨ êf .. make the list of deltas by making [0,1,2], decreasing each element,
+               .. taking product with itself and filtering for things with
+               .. at least one truthy element.
+      { .. map over fixed position and delta, both as 2-lists:
+        λ .. infinite loop:
+          Áq¸  .. vectorized add, then pop the old fixed position
+          :o   .. then copy it out
+          ~•== .. expand and index to get char
+          :«   .. copy then subtract 2, so we see if it's not 2
+          Q_&  .. if it's not 2, break
+          ;    .. otherwise just pop that char
+        }
+        .. now, we have a fixed position, a delta, and the new state
+        ¸¸ .. pop off the 2-lists
+      }y
+      Š .. sum our 8 results
+      .. we now have (cur state), (# of directions where we see 1) on stack
+      \  .. swap again
+      .. if true, #
+      5<b .. do we see less than five
+      .. if false, L
+      !_ .. do we see zero
+      ?  .. if-else
+    }
+    .. otherwise
+    {¸¸}
+    ? .. if-else
+  }T
+}F .. compute the fixed point of the above block
+
+Ôçš .. sum by counting how many are odd
+};
+
+
+.. 80 chars, way too slow
+{
+a .. read list of lines
+Jú3ú .. deeply mod 19 and then 3
+.. L -> 0, # -> 1, . -> 2
+
+{ .. compute the fixed point of this block:
+  .. uncomment to see frames printed out as they're computed:
+  .. :ε"L#."=vP}NP
+  βq‹LLq .. compute dimensions but under the big array
+  .. note: first (bottom) is number of columns
+  .. second (top) is number of rows
+  γ0Cfv™× .. twice, vectorize with cat-flanking with 0 and transpose
+  – .. pop and assign to the bullet because wow
+  .. the dimensions are here
+  Jd .. compute starting-from-1-ranges for both numbers
+  { .. we'll make a table off the cartesian product of these two:
+    .. here we have the two coordinates of a center from where to see things
+    { .. do this whole thing but stick it under the coordinates
+    ‡ .. bundle into a 2-list
+    3,(m²¨ êf .. make the list of deltas by making [0,1,2], decreasing each element,
+             .. taking product with itself and filtering for things with
+             .. at least one truthy element.
+    { .. map over fixed position and delta, both as 2-lists:
+      λ .. infinite loop:
+        Áq¸  .. vectorized add, then pop the old fixed position
+        :o   .. then copy it out
+        ~•== .. expand and index to get char
+        :«   .. copy then subtract 2, so we see if it's not 2
+        Q_&  .. if it's not 2, break
+        ;    .. otherwise just pop that char
+      }
+      .. now, we have a fixed position, a delta, and the new state
+      ¸¸ .. pop off the 2-lists
+    }y
+    Š .. sum our 8 results
+    }q
+    •== .. index the position to get cur state
+    .. we now have (# of directions where we see 1), (cur state) on stack
+    [
+      .. L
+      !_ .. do we see zero
+      .. #
+      5<b .. do we see less than five
+      .. .
+      β;2 .. just 2
+    ]=~ .. index and run
+
+  }T
+}F .. compute the fixed point of the above block
+
+Ôçš .. sum by counting how many are odd
+};
