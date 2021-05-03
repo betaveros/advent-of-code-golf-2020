@@ -1,0 +1,27 @@
+aε:'k#γ7>–{Ig~•23dγyÚ2B~|u&Hu}?}HŠ .. 34
+
+{
+a .. list of lines
+ε .. for each:
+  :'k# .. copy and see if it has the letter k in it:
+  .. if so, it's a "mask = " line:
+  γ7>– .. take the line, slice off "mask = ",
+       .. and stick it into bullet.
+  .. else:
+  {
+    Ig~    .. extract the two integers and expand
+    •23d   .. push the bullet and the list [2 3]
+    γyÚ2B  .. vectorize-mod the string by 2 and 3
+           .. and convert to binary
+    .. mod 2, '0 -> 0, '1 -> 1, 'X -> 0
+    .. mod 3, '0 -> 0, '1 -> 1, 'X -> 0
+    .. so this produces an OR mask and an AND mask
+    ~   .. expand
+    |u& .. apply the binary masks
+    Hu  .. update the default hoard with this value
+        .. at the key that's already on the stack
+  }
+  ? .. if-else
+}
+HŠ .. sum the hoard
+};

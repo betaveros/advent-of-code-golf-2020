@@ -1,0 +1,44 @@
+aε:'k#γ7>–{Ig~\•D{Bú[γ;2,{Y>sÔ†}γ;1†]=c~}yDβ×u+Bbr\Huv;}?}HŠ .. 60
+
+{
+a .. list of lines
+ε .. for each:
+  :'k# .. copy and see if it has the letter k in it:
+  .. if so, it's a "mask = " line:
+  γ7>– .. take the line, slice off "mask = ",
+       .. and stick it into bullet.
+  .. else:
+  {
+    Ig~\ .. extract the two integers and expand, then swap
+
+    .. we must produce a list of masked keys from this key
+    •D{ .. anti-vectorize against the bullet in reverse:
+      .. this block takes the key from the instruction and a
+      .. character from the mask:
+
+      Bú .. mod 11, which sends "01X" to [4 5 0]
+      .. pick a case from:
+      [
+        γ;2, .. X: range(2) (i.e. [0 1])
+        {    .. 0: extract a bit by
+          Y>sÔ .. shift left by index and see if odd
+          †    .. make a length-1 list
+        }
+        γ;1†  .. 1: just a length-1 list of 1
+      ]=c~
+    }y
+    .. we now have a list of lists of bits, but it's reversed
+    D .. reverse again
+    .. now we're gonna reduce by bi-mapping by doubling the first and adding
+    .. βrβ×u+B (Python Paradoc's nested short blocks are buggy but we worked
+    .. around it)
+    β×u+Bbr
+
+    .. we have a list of keys to update
+    \Huv .. swap and vectorize, will create an empty array
+    ;    .. get rid of it
+  }
+  ? .. if-else
+}
+HŠ .. sum the hoard
+};

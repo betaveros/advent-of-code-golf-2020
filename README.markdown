@@ -41,3 +41,5 @@ Day-Level | Bytes | Code | Try In-Browser
 12-1 | 57 | `a0\1jAá\ε(AúIu[γ*q;+u:γ6ò^j*-j_¦γAò^j*-_+j_+_]=~};~jLd+=i` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#YTBcMWpBw6FczrUoQcO6SXVbzrMqcTsrdTrOszbDsl5qKi1qX8KmzrNBw7JeaiotXytqXytfXT1+fTt+akxkKz1p)
 13-1 | 14 | `iIg(M{\%X]}vŒÞ` | [![try](try.svg)](https://betaveros.github.io/paradoc-rust/#aUlnKE17XCVYXX12xZLDng==)
 13-1 | 37 | `i'x'0ZtIg»1\0\ε{:oX*yÁ{Y+X#}gX\*u}&}¸` | need impl
+14-1 | 34 | `aε:'k#γ7>–{Ig~•23dγyÚ2B~\|u&Hu}?}HŠ` | tbd
+14-2 | 60 | `aε:'k#γ7>–{Ig~\•D{Bú[γ;2,{Y>sÔ†}γ;1†]=c~}yDβ×u+Bbr\Huv;}?}HŠ` | tbd
